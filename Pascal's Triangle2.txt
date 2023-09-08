@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+
+class Solution {
+public:
+    std::vector<int> getRow(int rowIndex) {
+        std::vector<int> row(rowIndex + 1, 0);  // Initialize a vector of size rowIndex+1 with 0s.
+        row[0] = 1;  // Set the first element to 1 (the starting point of each row).
+
+        for (int i = 1; i <= rowIndex; ++i) {
+            for (int j = i; j >= 1; --j) {
+                row[j] += row[j - 1];  // Calculate each element in the current row.
+            }
+        }
+
+        return row;
+    }
+};
+
+
